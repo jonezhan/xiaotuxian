@@ -1,12 +1,12 @@
 <script setup></script>
 
 <template>
-  <el-button type="primary" disabled>Primary</el-button>
-  <el-button type="danger" plain>Danger</el-button>
+  <!-- <el-button type="primary" disabled>Primary</el-button>
+  <el-button type="danger" plain>Danger</el-button> -->
   <!-- 一级路由出口组件 -->
   <RouterView />
   <!-- scss测试 -->
-  <div class="testScss">scss测试</div>
+  <!-- <div class="testScss">scss测试</div> -->
 </template>
 
 <style lang="scss" scoped>
