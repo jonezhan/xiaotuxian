@@ -3,7 +3,8 @@ import HomeCategory from "./components/HomeCategory.vue";
 import HomeBanner from "./components/HomeBanner.vue";
 import HomeNew from "./components/HomeNew.vue";
 import HomeHot from "./components/HomeHot.vue";
-import homeProduct from "./components/HomeProduct.vue";
+import HomeProduct from "./components/HomeProduct.vue";
+import HomePanel from "./components/HomePanel.vue";
 </script>
 
 <template>
@@ -13,5 +14,8 @@ import homeProduct from "./components/HomeProduct.vue";
   </div>
   <HomeNew />
   <HomeHot />
-  <homeProduct />
+  <HomeProduct />
+  <!-- 测试 -->
+  <HomePanel title="形势" sub-title="hhhhh"> <div>11</div></HomePanel>
+  <HomePanel title="dds" sub-title="55555"> <div>22</div></HomePanel>
 </template>
