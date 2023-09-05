@@ -3,6 +3,8 @@
 <template>
   <el-button type="primary" disabled>Primary</el-button>
   <el-button type="danger" plain>Danger</el-button>
+  <!-- 一级路由出口组件 -->
+  <RouterView />
 </template>
 
 <style scoped>
