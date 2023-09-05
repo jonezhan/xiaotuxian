@@ -1,17 +1,8 @@
 <script setup>
 //导入首页头部数据
-import { getCategoryAPI } from "@/apis/layout";
-import { ref, onMounted } from "vue";
-const categoryList = ref([]);
+import { useCounterStore } from "@/stores/category";
 
-const getCategory = async () => {
-  const res = await getCategoryAPI();
-  categoryList.value = res.result;
-  console.log(categoryList);
-};
-onMounted(() => {
-  getCategory();
-});
+const category = useCounterStore();
 </script>
 
 <template>
@@ -21,7 +12,10 @@ onMounted(() => {
         <RouterLink to="/">小兔鲜</RouterLink>
       </h1>
       <ul class="app-header-nav">
-        <li class="home" v-for="item in categoryList" :key="item.id">
+        <li class="home">
+          <RouterLink to="/">首页</RouterLink>
+        </li>
+        <li class="home" v-for="item in category.categoryList" :key="item.id">
           <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>

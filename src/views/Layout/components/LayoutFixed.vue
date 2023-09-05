@@ -1,5 +1,10 @@
 <script setup>
+//导入首页头部数据
 import { useScroll } from "@vueuse/core";
+import { useCounterStore } from "@/stores/category";
+
+const category = useCounterStore();
+
 const { x, y, isScrolling, arrivedState, directions } = useScroll(window);
 </script>
 
@@ -12,32 +17,8 @@ const { x, y, isScrolling, arrivedState, directions } = useScroll(window);
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li>
-          <RouterLink to="/">居家</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">美食</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">服饰</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">母婴</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">个护</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">严选</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">数码</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">运动</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">杂项</RouterLink>
+        <li class="home" v-for="item in category.categoryList" :key="item.id">
+          <RouterLink to="/">{{ item.name }}</RouterLink>
         </li>
       </ul>
 
