@@ -5,9 +5,15 @@
   <el-button type="danger" plain>Danger</el-button>
   <!-- 一级路由出口组件 -->
   <RouterView />
+  <!-- scss测试 -->
+  <div class="testScss">scss测试</div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.testScss {
+  color: $warnColor;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
