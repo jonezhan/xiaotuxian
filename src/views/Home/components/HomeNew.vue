@@ -15,7 +15,7 @@ const getNewList = async () => {
   newList.value = res.result;
 
   ManyList.value = resMany.result;
-  console.log(resMany);
+  // console.log(resMany);
 };
 onMounted(() => getNewList());
 </script>
