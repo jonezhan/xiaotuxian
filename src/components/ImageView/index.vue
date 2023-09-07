@@ -68,7 +68,11 @@ watch([elementX, elementY, isOutside], () => {
     <div class="middle" ref="target">
       <img :src="imageList[curIndex]" alt="" />
       <!-- 蒙层小滑块 -->
-      <div class="layer" :style="{ left: `${left}px`, top: `${top}px` }"></div>
+      <div
+        class="layer"
+        :style="{ left: `${left}px`, top: `${top}px` }"
+        v-show="!isOutside"
+      ></div>
     </div>
     <!-- 小图列表 -->
     <ul class="small">
@@ -86,12 +90,12 @@ watch([elementX, elementY, isOutside], () => {
       class="large"
       :style="[
         {
-          backgroundImage: `url(${imageList[0]})`,
-          backgroundPositionX: `0px`,
-          backgroundPositionY: `0px`,
+          backgroundImage: `url(${imageList[curIndex]})`,
+          backgroundPositionX: `${positionX}px`,
+          backgroundPositionY: `${positionY}px`,
         },
       ]"
-      v-show="false"
+      v-show="!isOutside"
     ></div>
   </div>
 </template>
