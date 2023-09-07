@@ -10,6 +10,7 @@ import router from "./router";
 
 // 引入懒加载插件
 import { lazyPlugin } from "@/directives";
+import { componentPlugin } from "@/components";
 
 //测试接口函数
 // import { getCategory } from "./apis/testAPI";
@@ -21,5 +22,6 @@ app.use(createPinia());
 app.use(router);
 
 app.use(lazyPlugin);
+app.use(componentPlugin);
 
 app.mount("#app");
