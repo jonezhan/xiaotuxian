@@ -1,4 +1,6 @@
 import axios from "axios";
+import { ElMessage, messageConfig } from "element-plus";
+import "element-plus/theme-chalk/el-message.css";
 
 // 创建axios实例
 const httpInstance = axios.create({
@@ -18,6 +20,11 @@ httpInstance.interceptors.request.use(
 httpInstance.interceptors.response.use(
   (res) => res.data,
   (e) => {
+    // 统一错误提示
+    ElMessage({
+      type: "warning",
+      message: e.response.data.message,
+    });
     return Promise.reject(e);
   }
 );
