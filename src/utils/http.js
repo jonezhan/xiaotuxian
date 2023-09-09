@@ -3,6 +3,7 @@ import { ElMessage, messageConfig } from "element-plus";
 import "element-plus/theme-chalk/el-message.css";
 
 import { useUserStore } from "@/stores/user";
+import router from "@/router";
 
 // 创建axios实例
 const httpInstance = axios.create({
@@ -31,11 +32,20 @@ httpInstance.interceptors.request.use(
 httpInstance.interceptors.response.use(
   (res) => res.data,
   (e) => {
+    const userStore = useUserStore();
+
     // 统一错误提示
     ElMessage({
       type: "warning",
       message: e.response.data.message,
     });
+    // 401token 失效处理
+    // 1.清除本地用户信息
+    // 2.跳转到登录页面
+    if (e.response.status === 401) {
+      userStore.clearUserInfo();
+      router.push("/login");
+    }
     return Promise.reject(e);
   }
 );
