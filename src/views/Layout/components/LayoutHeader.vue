@@ -1,6 +1,7 @@
 <script setup>
 //导入首页头部数据
 import { useCounterStore } from "@/stores/category";
+import HeaderCart from "./HeaderCart.vue";
 
 const category = useCounterStore();
 </script>
@@ -26,6 +27,7 @@ const category = useCounterStore();
         <input type="text" placeholder="搜一搜" />
       </div>
       <!-- 头部购物车 -->
+      <HeaderCart></HeaderCart>
     </div>
   </header>
 </template>
