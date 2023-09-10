@@ -1,26 +1,39 @@
 import { ElMessage } from "element-plus";
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
+import { useUserStore } from "./user";
+import { findNewCartListAPI, insertCartAPI } from "@/apis/cart";
 
 export const useCartStore = defineStore(
   "cart",
   () => {
+    const userStore = useUserStore();
+    const isLogin = computed(() => userStore.userInfo.token);
+
     // 1.定义state - cartList
     const cartList = ref([]);
 
     // 2.定义action - addCart
-    const addCart = (goods) => {
-      // 添加到购物车逻辑
-      // 已经添加过 --+count
-      // 没有添加过 --直接push到cartList
-      const item = cartList.value.find((item) => goods.skuId === item.skuId);
-      if (item) {
-        // 找到了加数量
-        item.count += goods.count;
-        ElMessage;
+    const addCart = async (goods) => {
+      const { skuId, count } = goods;
+      if (isLogin.value) {
+        // 登录之后的加入购物车逻辑
+        await insertCartAPI({ skuId, count });
+        const res = await findNewCartListAPI();
+        cartList.value = res.result;
       } else {
-        // 没找到
-        cartList.value.push(goods);
+        // 添加到购物车逻辑
+        // 已经添加过 --+count
+        // 没有添加过 --直接push到cartList
+        const item = cartList.value.find((item) => goods.skuId === item.skuId);
+        if (item) {
+          // 找到了加数量
+          item.count += goods.count;
+          ElMessage;
+        } else {
+          // 没找到
+          cartList.value.push(goods);
+        }
       }
     };
 
