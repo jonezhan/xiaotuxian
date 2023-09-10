@@ -9,6 +9,11 @@ const singleCheck = (i, selected) => {
   // 补充筛选参数skuId
   cartStore.singleCheck(i.skuId, selected);
 };
+
+// 全选与取消全选
+const allCheck = (selected) => {
+  cartStore.allCheck(selected);
+};
 // const cartList = [];
 </script>
 
@@ -20,7 +25,10 @@ const singleCheck = (i, selected) => {
           <thead>
             <tr>
               <th width="120">
-                <el-checkbox />
+                <el-checkbox
+                  @change="allCheck"
+                  :model-value="cartStore.isAll"
+                />
               </th>
               <th width="400">商品信息</th>
               <th width="220">单价</th>
