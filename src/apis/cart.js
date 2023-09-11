@@ -24,6 +24,15 @@ export const delCartAPI = (ids) => {
   });
 };
 
+// 合并购物车
+export const mergeCartAPI = (data) => {
+  return httpInstance({
+    url: "/member/cart/merge",
+    method: "POST",
+    data,
+  });
+};
+
 // 获取购物车列表
 export const findNewCartListAPI = () => {
   return httpInstance({
