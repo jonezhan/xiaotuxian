@@ -1,7 +1,7 @@
 <script setup>
 //导入首页头部数据
 import { useScroll } from "@vueuse/core";
-import { useCounterStore } from "@/stores/category";
+import { useCounterStore } from "@/stores/categoryStore";
 
 const category = useCounterStore();
 

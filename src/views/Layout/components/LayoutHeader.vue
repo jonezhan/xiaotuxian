@@ -1,6 +1,6 @@
 <script setup>
 //导入首页头部数据
-import { useCounterStore } from "@/stores/category";
+import { useCounterStore } from "@/stores/categoryStore";
 import HeaderCart from "./HeaderCart.vue";
 
 const category = useCounterStore();

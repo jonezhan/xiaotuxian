@@ -1,5 +1,5 @@
 <script setup>
-import { useCounterStore } from "@/stores/category";
+import { useCounterStore } from "@/stores/categoryStore";
 const category = useCounterStore();
 </script>
 
