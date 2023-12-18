@@ -18,7 +18,11 @@ const form = ref({
 const rules = {
   account: [{ required: true, message: "用户名不能为空", trigger: "blur" }],
   password: [
-    { required: true, message: "密码不能为空", trigger: "blur" },
+    {
+      required: true,
+      message: "密码不能为空",
+      trigger: "blur",
+    },
     {
       min: 6,
       max: 14,
@@ -104,7 +108,7 @@ const doLogin = () => {
               <el-form-item prop="account" label="账户">
                 <el-input v-model="form.account" />
               </el-form-item>
-              <el-form-item prop="password" label="密码">
+              <el-form-item prop="password" label="密码" show-password>
                 <el-input v-model="form.password" />
               </el-form-item>
               <el-form-item prop="agree" label-width="22px">
