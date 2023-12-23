@@ -18,6 +18,14 @@ export const useUserStore = defineStore(
     // 2.定义获取接口数据的action函数
     const getUserInfo = async ({ account, password }) => {
       const res = await loginAPI({ account, password });
+      // 缺少判断逻辑，比如判断是否登录成功，再进行信息存储
+      // if (res.code!== 200) {
+      //   return res;
+      // }
+      // if (!res.result) {
+      //   return res;
+      // }
+
       userInfo.value = res.result;
 
       // 合并购物车操作
@@ -31,6 +39,7 @@ export const useUserStore = defineStore(
         })
       );
       await cartStore.updateNewList();
+      return res;
     };
 
     // 退出时清除用户信息

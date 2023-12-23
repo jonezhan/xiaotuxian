@@ -1,13 +1,14 @@
 <script setup>
 import { getCategoryFilterAPI } from "@/apis/category";
+import { getSubCategoryAPI } from "@/apis/category";
 import { onBeforeRouteUpdate, useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
-import { getSubCategoryAPI } from "@/apis/category";
 import GoodsItem from "../Home/components/GoodsItem.vue";
+
+const route = useRoute();
 
 // 获取分类数据
 const categoryData = ref({});
-const route = useRoute();
 const getCategoryData = async (id = route.params.id) => {
   const res = await getCategoryFilterAPI(id);
   categoryData.value = res.result;
@@ -70,18 +71,20 @@ const load = async () => {
         <el-breadcrumb-item>{{ categoryData.name }}</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
+    <!-- 主体区域 -->
     <div class="sub-container">
+      <!-- 按钮栏 -->
       <el-tabs v-model="reqData.sortField" @tab-change="tabChange">
         <el-tab-pane label="最新商品" name="publishTime"></el-tab-pane>
         <el-tab-pane label="最高人气" name="orderNum"></el-tab-pane>
         <el-tab-pane label="评论最多" name="evaluateNum"></el-tab-pane>
       </el-tabs>
+      <!-- 商品列表-->
       <div
         class="body"
         v-infinite-scroll="load"
         :infinite-scroll-disabled="disabled"
       >
-        <!-- 商品列表-->
         <GoodsItem
           v-for="goods in goodsList"
           :goods="goods"

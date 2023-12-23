@@ -9,6 +9,7 @@ const { x, y, isScrolling, arrivedState, directions } = useScroll(window);
 </script>
 
 <template>
+  <!--  fixed吸顶导航栏 （首页 居家 美食 服饰 ... 杂项 | 品牌 专题） -->
   <div class="app-header-sticky" :class="{ show: y > 78 }">
     <div class="container">
       <RouterLink class="logo" to="/" />

@@ -40,6 +40,7 @@ const { categoryData } = useCategory();
           </li>
         </ul>
       </div>
+      <!-- 全部分类下面的东西，什么居家生活用品，收纳等等 -->
       <div
         class="ref-goods"
         v-for="item in categoryData.children"

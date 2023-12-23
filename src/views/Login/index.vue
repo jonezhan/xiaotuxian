@@ -60,6 +60,15 @@ const doLogin = () => {
       // TODO LOGIN
       const res = await userStore.getUserInfo({ account, password });
       console.log(res);
+      // 缺少判断登录状态
+      // if (res.code!== 200) {
+      //   ElMessage({
+      //     type: "error",
+      //     message: "用户名或密码错误",
+      //   });
+      //   return;
+      // }
+
       // 1.提示用户
       ElMessage({
         type: "success",

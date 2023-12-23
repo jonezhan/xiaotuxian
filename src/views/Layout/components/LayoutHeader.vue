@@ -7,6 +7,7 @@ const category = useCounterStore();
 </script>
 
 <template>
+  <!--  导航栏 （首页 居家 美食 服饰 ... 搜一搜 购物车图标） -->
   <header class="app-header">
     <div class="container">
       <h1 class="logo">

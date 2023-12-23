@@ -1,7 +1,16 @@
 <script setup>
 import { useCartStore } from "@/stores/cartStore";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const cartStore = useCartStore();
+function updateMargin() {
+  // console.log(55);
+  router.push("/cartlist");
+  // 将类nav的margin属性更新为新的值
+  // document.querySelector(".layer").style.opacity = 0;
+}
 </script>
 
 <template>
@@ -36,10 +45,8 @@ const cartStore = useCartStore();
           <p>共 {{ cartStore.allCount }} 件商品</p>
           <p>&yen; {{ cartStore.allPrice.toFixed(2) }}</p>
         </div>
-        <el-button
-          @click="$router.push('/cartlist')"
-          size="large"
-          type="primary"
+        <!-- @click="$router.push('/cartlist')" -->
+        <el-button @click="updateMargin()" size="large" type="primary"
           >去购物车结算</el-button
         >
       </div>

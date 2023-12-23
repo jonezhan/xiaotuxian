@@ -59,4 +59,19 @@ const router = createRouter({
   },
 });
 
+const router2 = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+
+  routes: [
+    {
+      path: "/",
+      component: Layout,
+    },
+    {
+      path: "/Login",
+      component: Login,
+    },
+  ],
+});
+
 export default router;

@@ -205,7 +205,7 @@ const createOrder = async () => {
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button>取消</el-button>
+        <el-button @click="showDialog = false">取消</el-button>
         <el-button @click="confirm" type="primary">确定</el-button>
       </span>
     </template>

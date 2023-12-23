@@ -26,6 +26,7 @@ export const useCartStore = defineStore(
         // 登录之后的加入购物车逻辑
         await insertCartAPI({ skuId, count });
         updateNewList();
+        ElMessage.success("已加入购物车");
       } else {
         // 添加到购物车逻辑
         // 已经添加过 --+count
@@ -39,6 +40,7 @@ export const useCartStore = defineStore(
           // 没找到
           cartList.value.push(goods);
         }
+        ElMessage.success("已加入购物车");
       }
     };
 

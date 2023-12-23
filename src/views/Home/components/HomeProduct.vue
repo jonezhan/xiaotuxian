@@ -17,6 +17,7 @@ onMounted(() => getGoods());
   <div class="home-product">
     <HomePanel :title="cate.name" v-for="cate in goodsProduct" :key="cate.id">
       <div class="box">
+        <!-- 封面（居家馆，三折起狂欢）等等 -->
         <RouterLink class="cover" to="/">
           <img v-img-lazy="cate.picture" />
           <strong class="label">
@@ -24,6 +25,7 @@ onMounted(() => getGoods());
             <span>{{ cate.saleInfo }}</span>
           </strong>
         </RouterLink>
+        <!-- 商品列表 -->
         <ul class="goods-list">
           <li v-for="goods in cate.goods" :key="goods.id">
             <GoodsItem :goods="goods"></GoodsItem>
