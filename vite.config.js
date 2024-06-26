@@ -34,4 +34,16 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    proxy: {
+      // 字符串简写写法：http://localhost:5173/foo -> http://localhost:4567/foo
+      // "/foo": "http://localhost:4567",
+      // 带选项写法：http://localhost:5173/api/bar -> http://jsonplaceholder.typicode.com/bar
+      "/api": {
+        target: "http://pcapi-xiaotuxian-front-devtest.itheima.net",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });

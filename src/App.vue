@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+console.log(import.meta.env);
+</script>
 
 <template>
   <!-- <el-button type="primary" disabled>Primary</el-button>
